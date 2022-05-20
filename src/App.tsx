@@ -6,9 +6,9 @@ function App() {
 
     return (
         <div>
-            <AppTitle />
-            <Rating />
-            <Accordion />
+            <AppTitle/>
+            <Rating/>
+            <Accordion/>
         </div>
     );
 }
@@ -27,11 +27,11 @@ function Rating() {
             <h4>Star</h4>
             <h4>Star</h4>
             <h4>Star</h4>*/}
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star />
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
         </div>
     );
 }
@@ -39,14 +39,24 @@ function Rating() {
 function Accordion() {
     return (
         <div>
-            <h3>HEY</h3>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
+            <AccordionTitle/>
+            <AccordionBody/>
         </div>
     );
+}
+
+function AccordionTitle() {
+    return <h3>MENU</h3>
+}
+
+function AccordionBody() {
+    return (
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    )
 }
 
 function Star() {
