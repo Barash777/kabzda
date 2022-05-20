@@ -13,6 +13,10 @@ function App() {
     );
 }
 
+function hey() {
+    return <>asd</>
+}
+
 function AppTitle() {
     return (
         <>This is APP component</>
