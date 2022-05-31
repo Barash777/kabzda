@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type RatingPropsType = {
     value: 0 | 1 | 2 | 3 | 4 | 5
@@ -6,6 +6,18 @@ type RatingPropsType = {
 
 export function Rating(props: RatingPropsType) {
 
+    return (
+        <div>
+            <Star selected={props.value >= 1}/>
+            <Star selected={props.value >= 2}/>
+            <Star selected={props.value >= 3}/>
+            <Star selected={props.value >= 4}/>
+            <Star selected={props.value >= 5}/>
+        </div>
+    );
+
+
+    /*
     if (props.value === 1) {
         return (
             <div>
@@ -71,6 +83,7 @@ export function Rating(props: RatingPropsType) {
             <Star selected={false}/>
         </div>
     );
+    */
 }
 
 type StarPropsType = {
