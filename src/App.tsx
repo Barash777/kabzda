@@ -3,6 +3,9 @@ import './App.css';
 import Accordion from './components/Accordion/Accordion';
 import {Rating} from './components/Rating/Rating';
 import OnOff from './components/OnOff/OnOff';
+import OnOffFromDimych from './components/OnOff/OnOffFromDimych';
+import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {UncontrolledRating} from './components/UncontolledRating/UncontrolledRating';
 
 function App() {
 
@@ -20,6 +23,13 @@ function App() {
             <hr/>
             <OnOff On={true}/>
             <OnOff On={false}/>
+            <hr/>
+            <OnOffFromDimych on={true}/>
+            <OnOffFromDimych on={false}/>
+            <hr/>
+            <UncontrolledAccordion title={'One more thing'}/>
+            <p></p>
+            <UncontrolledRating/>
         </div>
     );
 }
