@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 type OnOffPropsType = {
     On: boolean
 }
 
 const OnOff = (props: OnOffPropsType) => {
-    
-    const color = props.On ? 'green' : 'red'
+
+    let [onOff, setOnOff] = useState(props.On)
+
+    const color = onOff ? 'green' : 'red'
 
     const circle = {
         backgroundColor: color,
@@ -17,10 +19,17 @@ const OnOff = (props: OnOffPropsType) => {
         marginLeft: '2px'
     }
 
+    const onClickButtonHandler = (state: boolean) => {
+        setOnOff(state)
+    }
+
     return (
         <div>
-            {props.On ? <button style={{backgroundColor: color}}>ON</button> : <button>ON</button>}
-            {!props.On ? <button style={{backgroundColor: color}}>OFF</button> : <button>ON</button>}
+            {onOff ? <button onClick={() => onClickButtonHandler(true)} style={{backgroundColor: color}}>ON</button> :
+                <button onClick={() => onClickButtonHandler(true)}>ON</button>}
+            {!onOff ?
+                <button onClick={() => onClickButtonHandler(false)} style={{backgroundColor: color}}>OFF</button> :
+                <button onClick={() => onClickButtonHandler(false)}>OFF</button>}
             <div style={circle}></div>
         </div>
     );
