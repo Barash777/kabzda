@@ -10,7 +10,7 @@ import {UncontrolledRating} from './components/UncontolledRating/UncontrolledRat
 function App() {
 
     return (
-        <div>
+        <div className={'App'}>
             <Rating value={0}/>
             <PageTitle title={'This is page title 1'}/>
             <PageTitle title={'Second title'}/>
