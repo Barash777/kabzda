@@ -9,6 +9,7 @@ import {UncontrolledRating} from './components/UncontolledRating/UncontrolledRat
 import {UncontrolledRating2} from './components/UncontolledRating/UncontrolledRating2';
 import {UncontrolledAccordion2} from './components/UncontrolledAccordion/UncontrolledAccordion2';
 import ControlledOnOff from './components/OnOff/ControlledOnOff';
+import OneMoreOnOff from './components/OnOff/OneMoreOnOff';
 
 function App() {
 
@@ -20,13 +21,23 @@ function App() {
     return (
         <div className={'App'}>
 
-            <Rating value={ratingValue} onStarClick={setRatingValue}/>
-            <Accordion title={'Accordion again'}
-                       collapsed={collapsed}
-                       setCollapsed={setCollapsed}
+            <Rating
+                value={ratingValue}
+                onStarClick={setRatingValue}
             />
 
-            <ControlledOnOff OnOff={onOff} onChangeOnOff={setOnOff}/>
+            <Accordion
+                title={'Accordion again'}
+                collapsed={collapsed}
+                setCollapsed={setCollapsed}
+            />
+
+            {/*<ControlledOnOff
+                OnOff={onOff}
+                onChangeOnOff={setOnOff}
+            />*/}
+
+            <OneMoreOnOff onChange={setOnOff}/> {onOff.toString()}
 
             {/*<Rating value={0}/>
             <PageTitle title={'This is page title 1'}/>
