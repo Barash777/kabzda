@@ -6,7 +6,7 @@ import {Rating, RatingValueType} from './Rating'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Rating stories',
+    title: 'Rating',
     component: Rating,
 } as ComponentMeta<typeof Rating>;
 

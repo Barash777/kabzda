@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-type ValueType = 0 | 1 | 2 | 3 | 4 | 5;
+export type ValueType = 0 | 1 | 2 | 3 | 4 | 5;
 
 type RatingPropsType = {
     //value: ValueType
