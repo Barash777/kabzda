@@ -1,9 +1,7 @@
 import React, {useRef, useState} from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
-import {Button} from './Button';
-import {Simulate} from 'react-dom/test-utils';
-import {Rating, RatingValueType} from '../components/Rating/Rating';
+import {action} from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -49,4 +47,35 @@ export const getValueOfUncontrolledInputByButtonPress = () => {
 
 export const ControlledInputWithFixedValues = () => {
     return <input value={'input value'}/>
+}
+
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState('')
+
+    return <input value={parentValue} onChange={(e) => {
+        setParentValue(e.currentTarget.value)
+    }}/>
+}
+
+
+export const ControlledCheckbox = () => {
+    const [parentValue, setParentValue] = useState(true)
+
+    return <input type={'checkbox'} checked={parentValue} onChange={(e) => {
+        setParentValue(e.currentTarget.checked)
+    }}/>
+}
+
+export const ControlledSelect = () => {
+    const [parentValue, setParentValue] = useState<string>('0')
+
+    return <select value={parentValue} onChange={(e) => {
+        setParentValue(e.currentTarget.value)
+    }}>
+        <option value="0">none</option>
+        <option value="1">Elena</option>
+        <option value="2">Eric</option>
+        <option value="3">HZ</option>
+    </select>
 }
