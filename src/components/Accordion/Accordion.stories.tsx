@@ -9,6 +9,9 @@ export default {
     title: 'components/Accordion',
     component: Accordion,
     argTypes: { // doesn't need this for color
+        /*items: [
+            '1', '2', '3', '4', '5'
+        ],*/
         color: {
             control: 'color',
             table: {
@@ -44,7 +47,16 @@ Collapsed.args = {
     title: 'TITLE',
     collapsed: true,
     setCollapsed: action('clicked'),
-    color: 'red'
+    color: 'red',
+    items: [
+        {title: 'One', value: '1'},
+        {title: 'Two', value: '2'},
+        {title: 'Three', value: '3'},
+        {title: 'Four', value: '4'}
+    ],
+    onClick: (value: any) => {
+        alert(value)
+    }
 };
 
 export const UnCollapsed = Template.bind({});
@@ -60,5 +72,6 @@ export const ChangeState: ComponentStory<typeof Accordion> = (args) => {
     return <Accordion {...args} setCollapsed={setCollapsed} collapsed={collapsed}/>
 }
 ChangeState.args = {
+    ...Collapsed.args,
     title: 'Title from args'
 }
