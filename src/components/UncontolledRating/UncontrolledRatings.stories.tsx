@@ -5,7 +5,7 @@ import {UncontrolledRating, ValueType} from './UncontrolledRating'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'UncontrolledRating',
+    title: 'components/UncontrolledRating',
     component: UncontrolledRating,
 } as ComponentMeta<typeof UncontrolledRating>;
 

@@ -1,9 +1,19 @@
 import React from 'react';
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
+    /**
+     * Title value in header
+     */
     title: string
+    /**
+     * collapsed property to show/hide items
+     */
     collapsed: boolean
     setCollapsed: (collapsed: boolean) => void
+    /**
+     * color of the title
+     */
+    color?: string
 }
 
 function Accordion(props: AccordionPropsType) {
@@ -14,7 +24,7 @@ function Accordion(props: AccordionPropsType) {
 
     return (
         <div>
-            <AccordionTitle setCollapsed={onClickHandler} title={props.title}/>
+            <AccordionTitle setCollapsed={onClickHandler} title={props.title} color={props.color}/>
             {!props.collapsed && <AccordionBody/>}
         </div>
     );
@@ -24,10 +34,11 @@ function Accordion(props: AccordionPropsType) {
 type AccordionTitlePropsType = {
     title: string
     setCollapsed: () => void
+    color?: string
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
-    return <h3 onClick={props.setCollapsed}>{props.title}</h3>
+    return <h3 onClick={props.setCollapsed} style={{color: props.color ?? ''}}>{props.title}</h3>
 }
 
 function AccordionBody() {

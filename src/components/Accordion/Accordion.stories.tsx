@@ -1,17 +1,41 @@
 import React, {useState} from 'react';
-import {ComponentStory, ComponentMeta} from '@storybook/react';
-import Accordion from './Accordion';
+import {ComponentStory, ComponentMeta, Story} from '@storybook/react';
+import Accordion, {AccordionPropsType} from './Accordion';
 import {action} from '@storybook/addon-actions';
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Accordion',
+    title: 'components/Accordion',
     component: Accordion,
+    argTypes: { // doesn't need this for color
+        color: {
+            control: 'color',
+            table: {
+                category: 'Colors'
+            }
+        },
+        title: {
+            table: {
+                category: 'Text'
+            }
+        },
+        collapsed: {
+            table: {
+                category: 'Boolean'
+            }
+        },
+        setCollapsed: {
+            table: {
+                category: 'Callbacks'
+            }
+        },
+    }
 } as ComponentMeta<typeof Accordion>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Accordion> = (args) => <Accordion {...args} />;
+// const Template: Story<AccordionPropsType> = (args) => <Accordion {...args} />;
 
 
 export const Collapsed = Template.bind({});
@@ -19,7 +43,8 @@ export const Collapsed = Template.bind({});
 Collapsed.args = {
     title: 'TITLE',
     collapsed: true,
-    setCollapsed: action('clicked')
+    setCollapsed: action('clicked'),
+    color: 'red'
 };
 
 export const UnCollapsed = Template.bind({});
@@ -27,9 +52,13 @@ export const UnCollapsed = Template.bind({});
 UnCollapsed.args = {
     ...Collapsed.args,
     collapsed: false,
+    color: 'blue'
 };
 
-export const ChangeState = () => {
+export const ChangeState: ComponentStory<typeof Accordion> = (args) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
-    return <Accordion setCollapsed={setCollapsed} collapsed={collapsed} title={'TEST'}/>
+    return <Accordion {...args} setCollapsed={setCollapsed} collapsed={collapsed}/>
+}
+ChangeState.args = {
+    title: 'Title from args'
 }

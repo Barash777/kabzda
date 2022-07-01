@@ -5,7 +5,7 @@ import OnOff from './OnOff'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'OnOff',
+    title: 'components/OnOff',
     component: OnOff,
 } as ComponentMeta<typeof OnOff>;
 

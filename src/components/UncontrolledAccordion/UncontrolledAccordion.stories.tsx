@@ -6,7 +6,7 @@ import {action} from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'UncontrolledAccordion',
+    title: 'components/UncontrolledAccordion',
     component: UncontrolledAccordion,
 } as ComponentMeta<typeof UncontrolledAccordion>;
 
