@@ -5,7 +5,7 @@ import {action} from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'components/input',
+    title: 'kabzda/input',
     //component: Button,
 }// as ComponentMeta<typeof input>;
 
