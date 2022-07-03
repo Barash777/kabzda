@@ -28,7 +28,7 @@ export const TrackValueOfUncontrolledInput = () => {
     </>
 }
 
-export const getValueOfUncontrolledInputByButtonPress = () => {
+export const GetValueOfUncontrolledInputByButtonPress = () => {
     const [value, setValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
 

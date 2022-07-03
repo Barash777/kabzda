@@ -19,11 +19,11 @@ function App() {
                 onStarClick={setRatingValue}
             />
 
-            <Accordion
+            {/*<Accordion
                 title={'Accordion again'}
                 collapsed={collapsed}
                 setCollapsed={setCollapsed}
-            />
+            />*/}
 
 
             <OneMoreOnOff onChange={setOnOff}/> {onOff.toString()}

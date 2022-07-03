@@ -12,11 +12,11 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
-
-export const usualBehaviour = Template.bind({});
+/*
+export const usualBehavior = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-usualBehaviour.args = {
-    title: 'TITLE',
+usualBehavior.args = {
+    value: '1',
     items: [
         {title: 'One', value: '1'},
         {title: 'Two', value: '2'},
@@ -24,8 +24,27 @@ usualBehaviour.args = {
         {title: 'Four', value: '4'}
     ],
     onChange: (value: string) => {
+
     }
 };
+*/
+
+export const ControlledSelect = () => {
+    const [value, setValue] = useState<string>('1')
+
+    return <Select
+        onChange={setValue}
+        items={[
+            {title: 'One', value: '1'},
+            {title: 'Two', value: '2'},
+            {title: 'Three', value: '3'},
+            {title: 'Four', value: '4'}
+        ]}
+        value={value}/>
+
+}
+
+//
 
 /*
 export const UnCollapsed = Template.bind({});
