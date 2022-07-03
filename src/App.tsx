@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
 import OneMoreOnOff from './components/OnOff/OneMoreOnOff';
 
@@ -18,6 +17,8 @@ function App() {
                 value={ratingValue}
                 onStarClick={setRatingValue}
             />
+
+            {/*<UncontrolledAccordion title={'TITLE'}/>*/}
 
             {/*<Accordion
                 title={'Accordion again'}
