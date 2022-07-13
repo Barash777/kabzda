@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 import {ComponentStory, ComponentMeta} from '@storybook/react';
 
 import {action} from '@storybook/addon-actions';
@@ -121,7 +121,7 @@ export const UseMemoForSelectHW = () => {
     const [value2, setValue2] = useState<string>('0')
     const [value3, setValue3] = useState<string>('0')
 
-    const memo = useMemo(() => {
+    useMemo(() => {
         console.log('use memo')
 
         let cs = cities.filter(u => u.title.toLowerCase().indexOf('a') > -1).map((u, i) => ({
@@ -146,12 +146,21 @@ export const UseMemoForSelectHW = () => {
             }))
         setSelect3(cs);
 
-        return 0;
     }, [cities]);
 
     const selectStyle = {
         display: 'inline-block',
         margin: '10px'
+    }
+
+    const addCity = () => {
+        const newCity: cityType = {
+            countryID: new Date().getTime(),
+            title: 'AAA ' + new Date().getTime().toString(),
+            citizens: Math.random()
+        }
+        console.log('add city')
+        setCities([...cities, newCity])
     }
 
     return <>
@@ -163,5 +172,95 @@ export const UseMemoForSelectHW = () => {
                                           onChange={setValue2}/></span>
         <span style={selectStyle}><Select value={value3} items={select3}
                                           onChange={setValue3}/></span>
+        <div>
+            <button onClick={addCity}>add city</button>
+        </div>
     </>
 }
+
+/*
+export const UseMemoForSelectHWCase2 = () => {
+    console.log('UseMemoForSelectHWCase2 component')
+
+    const [counter, setCounter] = useState(0);
+    const [cities, setCities] = useState<Array<cityType>>(citiesArray);
+
+    const [select1, setSelect1] = useState<Array<ItemType>>([]);
+    const [select2, setSelect2] = useState<Array<ItemType>>([]);
+    const [select3, setSelect3] = useState<Array<ItemType>>([]);
+
+    const [value1, setValue1] = useState<string>('0')
+    const [value2, setValue2] = useState<string>('0')
+    const [value3, setValue3] = useState<string>('0')
+
+    const s1 = useMemo(() => {
+        console.log('memo select 1')
+        const cs = cities.filter(u => u.title.toLowerCase().indexOf('a') > -1).map((u, i) => ({
+            title: u.title,
+            value: i.toString()
+        }))
+        // setSelect1(cs);
+
+        return cs
+    }, [select1]);
+
+    const s2 = useMemo(() => {
+        console.log('memo select 2')
+        const cs = cities.filter(u => u.countryID === 1).map((u, i) =>
+            ({
+                title: u.title,
+                value: i.toString()
+            }))
+        // setSelect2(cs);
+
+        return cs
+    }, [select2]);
+
+    const s3 = useMemo(() => {
+        console.log('memo select 3')
+        const cs = cities.filter(u => u.citizens >= 2000).map((u, i) =>
+            ({
+                title: u.title,
+                value: i.toString()
+            }))
+        // setSelect3(cs);
+
+        return cs
+    }, [select3]);
+
+
+    setSelect1(s1)
+    setSelect2(s2)
+    setSelect3(s3)
+
+
+    const selectStyle = {
+        display: 'inline-block',
+        margin: '10px'
+    }
+
+    const addCity = () => {
+        const newCity: cityType = {
+            countryID: new Date().getTime(),
+            title: 'AAA ' + new Date().getTime().toString(),
+            citizens: Math.random()
+        }
+        console.log('add city')
+        setCities([...cities, newCity])
+    }
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <span style={selectStyle}><Select value={value1} items={select1}
+                                          onChange={setValue1}/></span>
+        <span style={selectStyle}><Select value={value2} items={select2}
+                                          onChange={setValue2}/></span>
+        <span style={selectStyle}><Select value={value3} items={select3}
+                                          onChange={setValue3}/></span>
+        <div>
+            <button onClick={addCity}>add city</button>
+        </div>
+    </>
+}
+*/
