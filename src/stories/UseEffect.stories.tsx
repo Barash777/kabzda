@@ -61,7 +61,7 @@ export const SetTimeoutExample = () => {
     </>
 }
 
-export const Clock = () => {
+/*export const Clock = () => {
     console.log('Clock')
 
     const [date, setDate] = useState(new Date());
@@ -69,10 +69,10 @@ export const Clock = () => {
     useEffect(() => {
         console.log('UseEffect')
 
-        /*setTimeout(() => {
+        /!*setTimeout(() => {
             console.log('setTimeout')
             document.title = counter.toString();
-        }, 1000)*/
+        }, 1000)*!/
 
         setInterval(() => {
             // console.log('setInterval, counter = ', counter)
@@ -85,4 +85,4 @@ export const Clock = () => {
     return <>
         clock: {date.toLocaleTimeString('Ru-ru')}
     </>
-}
+}*/
