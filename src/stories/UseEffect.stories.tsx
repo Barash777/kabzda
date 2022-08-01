@@ -32,8 +32,8 @@ export const SimpleExample = () => {
     </>
 }
 
-export const SetTimeoutExample = () => {
-    console.log('SetTimeoutExample')
+export const SetIntervalExample = () => {
+    console.log('SetIntervalExample')
 
     const [counter, setCounter] = useState<number>(0);
     const [fake, setFake] = useState<number>(0);
@@ -46,10 +46,14 @@ export const SetTimeoutExample = () => {
             document.title = counter.toString();
         }, 1000)*/
 
-        setInterval(() => {
+        const id = setInterval(() => {
             console.log('setInterval, counter = ', counter)
             setCounter(state => state + 1)
         }, 1000)
+
+        return () => {
+            clearInterval(id)
+        }
 
     }, [])
 
@@ -61,28 +65,47 @@ export const SetTimeoutExample = () => {
     </>
 }
 
-/*export const Clock = () => {
-    console.log('Clock')
+export const ResetUseEffectExample = () => {
+    console.log('ResetUseEffectExample')
 
-    const [date, setDate] = useState(new Date());
+    const [counter, setCounter] = useState<number>(0);
 
     useEffect(() => {
         console.log('UseEffect')
 
-        /!*setTimeout(() => {
-            console.log('setTimeout')
-            document.title = counter.toString();
-        }, 1000)*!/
-
-        setInterval(() => {
-            // console.log('setInterval, counter = ', counter)
-            setDate(new Date())
-        }, 1000)
-
+        return () => {
+            console.log('Reset UseEffect')
+        }
     }, [])
 
 
     return <>
-        clock: {date.toLocaleTimeString('Ru-ru')}
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        counter: {counter}
     </>
-}*/
+}
+
+export const OnKeyTrackerExample = () => {
+    console.log('OnKeyTrackerExample')
+
+    const [text, setText] = useState<string>('');
+
+    useEffect(() => {
+        console.log('UseEffect')
+
+        const id = setTimeout(() => {
+            console.log('TIMOUT FINISHED')
+            setText('3 seconds passed')
+        }, 3000)
+
+        return () => {
+            console.log('Reset UseEffect')
+            clearTimeout(id)
+        }
+    }, [text])
+
+
+    return <>
+        Text: {text}
+    </>
+}
